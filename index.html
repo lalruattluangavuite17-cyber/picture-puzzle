@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Puzzle</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🧩 Picture Puzzle</h1>
+        <p>Choose a picture and solve the puzzle!</p>
+    </header>
+
+    <main>
+
+        <section id="game-info">
+
+    <div>
+        <span>⏱️ Time</span>
+        <strong id="timer">00:00</strong>
+    </div>
+
+    <div>
+        <span>🔢 Moves</span>
+        <strong id="moves">0</strong>
+    </div>
+
+    <div id="reference-box">
+
+        <span>🖼️ Picture</span>
+
+        <img
+            id="reference-image"
+            src=""
+            alt="Puzzle reference"
+        >
+
+    </div>
+
+</section>
+
+        <section id="controls">
+
+    <button id="galleryButton">🖼️ Gallery</button>
+
+    <label for="imageInput" class="button">
+        📁 My Picture
+    </label>
+
+    <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+    >
+
+    <select id="difficulty">
+
+        <option value="3">3 × 3</option>
+        <option value="4" selected>4 × 4</option>
+        <option value="5">5 × 5</option>
+
+    </select>
+
+    <button id="shuffleButton">
+        🔀 Shuffle
+    </button>
+
+    <button id="resetButton">
+        ↻ Reset
+    </button>
+
+    <button id="hintButton">
+        💡 Hint
+    </button>
+
+    <button id="pauseButton">⏸️ Pause</button>
+
+    <button id="undoButton">↩️ Undo</button>
+
+    <button id="soundButton">
+        🔊 Sound On
+    </button>
+
+</section>
+
+
+<!-- ==========================
+     IMAGE GALLERY
+========================== -->
+
+<section id="gallery">
+
+    <h2>🖼️ Choose a Picture</h2>
+
+    <div id="gallery-grid">
+
+        <button class="gallery-item"
+            data-image="./images/Nature_1.png">
+
+            🌲 Nature 1
+
+        </button>
+
+        <button class="gallery-item"
+            data-image="./images/Nature_2.png">
+
+            🌿 Nature 2
+
+        </button>
+
+        <button class="gallery-item"
+            data-image="./images/Nature_3.png">
+
+            🌄 Nature 3
+
+        </button>
+
+        <button class="gallery-item"
+            data-image="./images/Nature_4.png">
+
+            🌳 Nature 4
+
+        </button>
+
+    </div>
+
+</section>
+
+        <section id="puzzle-container">
+            <div id="puzzle-board">
+                <!-- Puzzle pieces will be created here by JavaScript -->
+            </div>
+        </section>
+
+        <section id="message">
+            <h2>Choose a picture to begin!</h2>
+            <p>Your selected picture will become the puzzle.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Made with HTML, CSS & JavaScript ❤️</p>
+    </footer>
+
+    <!-- ==========================
+         IMAGE PREVIEW
+        ========================== -->
+
+    <div id="image-preview">
+
+    <button id="close-preview">✕</button>
+
+    <img
+        id="preview-image"
+        src=""
+        alt="Full puzzle picture"
+    >
+
+    </div>
+
+    <div id="pauseOverlay">
+
+    <div class="pause-box">
+
+        <h2>⏸️ Game Paused</h2>
+
+        <p>Your puzzle is waiting for you!</p>
+
+        <button id="resumeButton">
+            ▶️ Resume
+        </button>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
