@@ -9,7 +9,6 @@ const undoButton =
     document.getElementById("undoButton");
     let moveHistory = [];
 
-const difficulty = document.getElementById("difficulty");
 const referenceImage =
     document.getElementById("reference-image");
 
@@ -106,10 +105,9 @@ resumeButton.addEventListener("click", function () {
 // GAME SETTINGS
 // ==========================
 
-let SIZE = 4;
-let TOTAL_TILES = SIZE * SIZE;
-let EMPTY_TILE = TOTAL_TILES - 1;
-
+let SIZE = 3;
+let TOTAL_TILES = 9;
+let EMPTY_TILE = 8;
 const HINT_COST = 100;
 
 
@@ -215,25 +213,6 @@ imageInput.addEventListener("change", function () {
 });
 
 
-// ==========================
-// DIFFICULTY
-// ==========================
-
-difficulty.addEventListener("change", function () {
-
-    SIZE = Number(this.value);
-
-    TOTAL_TILES = SIZE * SIZE;
-
-    EMPTY_TILE = TOTAL_TILES - 1;
-
-    puzzleBoard.style.gridTemplateColumns =
-        `repeat(${SIZE}, 1fr)`;
-
-    isMoving = false;
-
-    resetGame();
-});
 
 
 // ==========================
@@ -262,7 +241,7 @@ function drawPuzzle() {
 
     puzzleBoard.innerHTML = "";
 
-    tiles.forEach((tileNumber, index) => {
+    tiles.forEach(function (tileNumber, index) {
 
         const tile =
             document.createElement("button");
@@ -270,7 +249,9 @@ function drawPuzzle() {
         tile.classList.add("puzzle-piece");
 
 
-        // EMPTY TILE
+        // ==========================
+        // EMPTY SPACE
+        // ==========================
 
         if (tileNumber === EMPTY_TILE) {
 
@@ -283,10 +264,13 @@ function drawPuzzle() {
 
             tile.style.boxShadow =
                 "inset 0 0 15px rgba(0, 0, 0, 0.5)";
+
         }
 
 
-        // NORMAL TILE
+        // ==========================
+        // NORMAL PIECE
+        // ==========================
 
         else {
 
@@ -313,20 +297,21 @@ function drawPuzzle() {
             tile.style.backgroundSize =
                 `${SIZE * 100}% ${SIZE * 100}%`;
 
+            tile.addEventListener(
+                "click",
+                function () {
 
-            tile.addEventListener("click", function () {
+                    moveTile(index);
 
-                moveTile(index);
+                }
+            );
 
-            });
         }
-
 
         puzzleBoard.appendChild(tile);
 
     });
 }
-
 
 // ==========================
 // SHUFFLE
