@@ -189,7 +189,7 @@ main {
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(3, 1fr);
 
     gap: 5px;
 
@@ -227,7 +227,7 @@ main {
 
     cursor: pointer;
 
-    background-size: 400% 400%;
+    background-size: 300% 300%;
 
     background-repeat: no-repeat;
 
@@ -1023,4 +1023,65 @@ footer {
 
         font-size: 24px;
     }
+}
+
+/* ==========================
+   TILE LABEL
+========================== */
+
+.puzzle-piece {
+    position: relative;
+    overflow: hidden;
+}
+
+.tile-number {
+    position: absolute;
+
+    top: 6px;
+    left: 6px;
+
+    min-width: 28px;
+    height: 28px;
+
+    padding: 0 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.5);
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+
+    .tile-number {
+
+        top: 4px;
+        left: 4px;
+
+        min-width: 23px;
+        height: 23px;
+
+        font-size: 11px;
+
+        border-width: 1px;
+    }
+
 }
